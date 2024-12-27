@@ -3,7 +3,6 @@ import Upload from '../components/Upload'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const Home = () => {
 
@@ -19,7 +18,6 @@ const Home = () => {
   const {title, description, thumbnail, video} = data;
 
   const navigate = useNavigate();
-  
 
   const handleChange = (e) => {
     setData({
@@ -79,7 +77,13 @@ const Home = () => {
             className='w-[600px] h-[600px] overflow-scroll no-scrollbar bg-white text-black box-border p-8 rounded-3xl hover:scale-105 transition-all duration-300'
           >
             <div className='w-full flex flex-col gap-3'>
-                <h1 className='text-4xl mb-3 text-[#0d47a1] font-medium'>Upload Video</h1>
+                <div className='flex justify-between items-center'>
+                    <h1 className='text-4xl mb-3 text-[#0d47a1] font-medium'>Upload Video</h1>
+
+                    <button onClick={() => navigate("/list")} className='px-3 py-1 bg-[#1565c0] rounded-md text-white'>
+                      Go to list
+                    </button>
+                </div>
     
                 <div className='flex flex-col gap-3'>
                   <label htmlFor='title' className='text-lg font-semibold'>Title</label>

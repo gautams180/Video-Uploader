@@ -41,23 +41,3 @@ app.listen(port, () => {
     console.log(`Server is running on ${port}`);
 });
 
-// const busboy = require('busboy');
-
-// app.post('/upload', (req, res) => {
-//     const bb = busboy({ headers: req.headers, limits: { fileSize: 40 * 1024 * 1024 } }); // Limit to 10MB
-    
-//     bb.on('file', (fieldname, file, filename, encoding, mimetype) => {
-//         console.log(fieldname, file, filename, encoding, mimetype);
-//     });
-
-//     bb.on('close', () => {
-//         res.status(200).send('Upload complete');
-//     });
-
-//     bb.on('error', (err) => {
-//         console.error(err);
-//         res.status(400).send('Error processing file upload');
-//     });
-
-//     req.pipe(bb);
-// });
