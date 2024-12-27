@@ -8,16 +8,18 @@ const List = () => {
 
   const navigate = useNavigate();
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   useEffect(() => {
     const fetchVideos = async () => {
-      const response = await axios.get('http://localhost:5000/api/v1/getVideos');
+      const response = await axios.get(`${BASE_URL}/api/v1/getVideos`);
 
       console.log(response);
 
       setVideos(response.data.videos);
     }
     fetchVideos();
-  },[]);
+  },[BASE_URL]);
 
 
   return (

@@ -19,6 +19,8 @@ const Home = () => {
 
   const navigate = useNavigate();
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   const handleChange = (e) => {
     setData({
       ...data,
@@ -44,7 +46,7 @@ const Home = () => {
 
     setUploadProgress(0);
     try {
-      const response = await axios.post('http://localhost:5000/api/v1/upload', formData, {
+      const response = await axios.post(`${BASE_URL}/api/v1/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -74,7 +76,7 @@ const Home = () => {
     <div className='h-screen grid place-content-center bg-[#e9eaec] overflow-hidden'>
         <form
           onSubmit={handleSubmit}
-            className='w-[600px] h-[600px] overflow-scroll no-scrollbar bg-white text-black box-border p-8 rounded-3xl hover:scale-105 transition-all duration-300'
+            className='w-[600px] h-[600px] overflow-scroll no-scrollbar bg-white text-black box-border p-8 rounded-3xl'
           >
             <div className='w-full flex flex-col gap-3'>
                 <div className='flex justify-between items-center'>
