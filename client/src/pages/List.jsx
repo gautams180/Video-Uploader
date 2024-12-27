@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const List = () => {
 
   const [videos, setVideos] = useState([]);
+  const [fetchStatus, setFetchStatus] = useState(false);
 
   const navigate = useNavigate();
 
@@ -12,11 +13,13 @@ const List = () => {
 
   useEffect(() => {
     const fetchVideos = async () => {
+      setFetchStatus(true);
       const response = await axios.get(`${BASE_URL}/api/v1/getVideos`);
 
-      console.log(response);
+      // console.log(response);
 
       await setVideos(response.data.videos);
+      setFetchStatus(false);
     }
     fetchVideos();
   },[BASE_URL]);
@@ -28,7 +31,7 @@ const List = () => {
 
       <div className='w-[70%] bg-white p-5 rounded-3xl'>
         {
-          videos.length ? (
+          (fetchStatus === false) ? (
             <div className="flex flex-col gap-2 bg-[#e9eaec]">
               {
                 videos.map(video => (

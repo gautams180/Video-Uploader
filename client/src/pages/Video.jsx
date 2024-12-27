@@ -8,7 +8,7 @@ const Video = () => {
 
     const url = location.state?.videoUrl;
 
-    console.log("URL",url);
+    // console.log("URL",url);
 
   return (
     <div className='h-screen bg-[#e9eaec] p-10'>
