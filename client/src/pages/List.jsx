@@ -34,7 +34,7 @@ const List = () => {
           (fetchStatus === false) ? (
             <div className="flex flex-col gap-2 bg-[#e9eaec]">
               {
-                videos.map(video => (
+                (videos.map(video => (
                   <div className="h-20 flex items-center gap-10 bg-white cursor-pointer" key={video._id} onClick={() => navigate("/video", { state: {videoUrl: video.videoUrl} })}>
 
                     <div>
@@ -45,7 +45,7 @@ const List = () => {
                       <h3 className='text-[#6c757d]'><span className='text-black text-lg font-semibold'>Description: </span> {video.description}</h3>
                     </div>
                   </div>
-                ))
+                )))
               }
             </div>
           ) : (
