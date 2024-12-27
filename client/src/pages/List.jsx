@@ -27,15 +27,15 @@ const List = () => {
 
   return (
     <div className='p-10 bg-[#e9eaec] h-screen'>
-      <h1 className='text-4xl mb-3 text-[#0d47a1] font-medium my-10'>List of Videos</h1>
+      <h1 className='text-4xl mb-3 text-[#0d47a1] font-medium my-10 mx-auto w-fit'>List of Videos</h1>
 
-      <div className='w-[70%] bg-white p-5 rounded-3xl'>
+      <div className='w-[50%] mx-auto bg-white p-5 rounded-3xl flex flex-col gap-2'>
         {
-          (fetchStatus === false) ? (
-            <div className="flex flex-col gap-2 bg-[#e9eaec]">
-              {
-                (videos.map(video => (
-                  <div className="h-20 flex items-center gap-10 bg-white cursor-pointer" key={video._id} onClick={() => navigate("/video", { state: {videoUrl: video.videoUrl} })}>
+          videos && videos.length > 0 ? (
+            
+              
+                videos.map(video => (
+                  <div className="h-20 bg-[#e9eaec] flex items-center gap-10 rounded-md cursor-pointer px-5" key={video._id} onClick={() => navigate("/video", { state: {videoUrl: video.videoUrl} })}>
 
                     <div>
                       <img src={video.thumbnailUrl} height={90} width={90} alt='thumbnail' />
@@ -45,9 +45,9 @@ const List = () => {
                       <h3 className='text-[#6c757d]'><span className='text-black text-lg font-semibold'>Description: </span> {video.description}</h3>
                     </div>
                   </div>
-                )))
-              }
-            </div>
+                ))
+              
+            
           ) : (
             <h1>Loading...</h1>
           )
