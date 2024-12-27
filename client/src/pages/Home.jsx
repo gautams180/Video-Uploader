@@ -20,6 +20,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const BASE_URL = process.env.REACT_APP_BASE_URL;
+  console.log("Base url in home:",BASE_URL);
 
   const handleChange = (e) => {
     setData({
@@ -71,7 +72,7 @@ const Home = () => {
     
   }
 
-
+ 
   return (
     <div className='h-screen p-5 bg-[#e9eaec] overflow-hidden'>
 

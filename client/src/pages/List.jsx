@@ -10,6 +10,7 @@ const List = () => {
   const navigate = useNavigate();
 
   const BASE_URL = process.env.REACT_APP_BASE_URL;
+  console.log("Base url in list:",BASE_URL);
 
   useEffect(() => {
     const fetchVideos = async () => {
