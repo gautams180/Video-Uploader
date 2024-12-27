@@ -16,7 +16,7 @@ const List = () => {
 
       console.log(response);
 
-      setVideos(response.data.videos);
+      await setVideos(response.data.videos);
     }
     fetchVideos();
   },[BASE_URL]);
@@ -41,9 +41,6 @@ const List = () => {
                       <h3 className='text-[#6c757d]'><span className='text-black text-lg font-semibold'>Title: </span> {video.title}</h3>
                       <h3 className='text-[#6c757d]'><span className='text-black text-lg font-semibold'>Description: </span> {video.description}</h3>
                     </div>
-                    {/* <video controls>
-                      <source src={video.videoUrl} type="video/mp4" />
-                    </video> */}
                   </div>
                 ))
               }

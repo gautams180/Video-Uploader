@@ -8,7 +8,7 @@ const Upload = ({video, data, setData}) => {
       
     
     const onDrop = (acceptedFiles) => {
-        console.log("Accepted Files",acceptedFiles);
+        // console.log("Accepted Files",acceptedFiles);
         const file = acceptedFiles[0];
         previewFile(file);
         setData({

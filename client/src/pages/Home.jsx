@@ -33,7 +33,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("video",video);
+    // console.log("video",video);
 
     const formData = new FormData();
     formData.append("title",title);
@@ -41,7 +41,7 @@ const Home = () => {
     formData.append("thumbnail",thumbnail);
     formData.append("video",video);
 
-    console.log("formData",formData);
+    // console.log("formData",formData);
 
 
     setUploadProgress(0);
@@ -73,7 +73,12 @@ const Home = () => {
 
 
   return (
-    <div className='h-screen grid place-content-center bg-[#e9eaec] overflow-hidden'>
+    <div className='h-screen p-5 bg-[#e9eaec] overflow-hidden'>
+
+      <div className='w-[70%] mx-auto grid grid-cols-2 place-items-center justify-center items-center gap-x-5'>
+        <button onClick={() => navigate("/list")} className='w-32 h-10 px-3 py-1 bg-[#1565c0] rounded-md text-white'>
+          Go to list
+        </button>
         <form
           onSubmit={handleSubmit}
             className='w-[600px] h-[600px] overflow-scroll no-scrollbar bg-white text-black box-border p-8 rounded-3xl'
@@ -82,9 +87,7 @@ const Home = () => {
                 <div className='flex justify-between items-center'>
                     <h1 className='text-4xl mb-3 text-[#0d47a1] font-medium'>Upload Video</h1>
 
-                    <button onClick={() => navigate("/list")} className='px-3 py-1 bg-[#1565c0] rounded-md text-white'>
-                      Go to list
-                    </button>
+                    
                 </div>
     
                 <div className='flex flex-col gap-3'>
@@ -157,6 +160,8 @@ const Home = () => {
             </div>
     
           </form>
+      </div>
+        
     </div>
   )
 }
