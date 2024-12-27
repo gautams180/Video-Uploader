@@ -16,9 +16,9 @@ const List = () => {
       setFetchStatus(true);
       const response = await axios.get(`${BASE_URL}/api/v1/getVideos`);
 
-      // console.log(response);
+      console.log(response);
 
-      await setVideos(response.data.videos);
+      await setVideos(response?.data?.videos);
       setFetchStatus(false);
     }
     fetchVideos();
@@ -31,7 +31,7 @@ const List = () => {
 
       <div className='w-[50%] mx-auto bg-white p-5 rounded-3xl flex flex-col gap-2'>
         {
-          videos && videos.length > 0 ? (
+          (setFetchStatus === false) ? (
             
               
                 videos.map(video => (
