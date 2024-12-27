@@ -32,22 +32,23 @@ const List = () => {
 
       <div className='w-[50%] mx-auto bg-white p-5 rounded-3xl flex flex-col gap-2'>
         {
-          (setFetchStatus === false) ? (
-            
-              
-                videos.map(video => (
-                  <div className="h-20 bg-[#e9eaec] flex items-center gap-10 rounded-md cursor-pointer px-5" key={video._id} onClick={() => navigate("/video", { state: {videoUrl: video.videoUrl} })}>
+          videos && videos.length > 0 ? (
+              <div>
+                {
+                  videos.map(video => (
+                    <div className="h-20 bg-[#e9eaec] flex items-center gap-10 rounded-md cursor-pointer px-5" key={video._id} onClick={() => navigate("/video", { state: {videoUrl: video.videoUrl} })}>
 
-                    <div>
-                      <img src={video.thumbnailUrl} height={90} width={90} alt='thumbnail' />
+                      <div>
+                        <img src={video.thumbnailUrl} height={90} width={90} alt='thumbnail' />
+                      </div>
+                      <div className='flex flex-col gap-2'>
+                        <h3 className='text-[#6c757d]'><span className='text-black text-lg font-semibold'>Title: </span> {video.title}</h3>
+                        <h3 className='text-[#6c757d]'><span className='text-black text-lg font-semibold'>Description: </span> {video.description}</h3>
+                      </div>
                     </div>
-                    <div className='flex flex-col gap-2'>
-                      <h3 className='text-[#6c757d]'><span className='text-black text-lg font-semibold'>Title: </span> {video.title}</h3>
-                      <h3 className='text-[#6c757d]'><span className='text-black text-lg font-semibold'>Description: </span> {video.description}</h3>
-                    </div>
-                  </div>
-                ))
-              
+                  ))
+                }
+              </div>
             
           ) : (
             <h1>Loading...</h1>
